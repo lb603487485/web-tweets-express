@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const utils = require('../utils');
 
-router.get('/', (req, res) => {
+router.get('/', utils.requireLogin, (req, res) => {
     res.render('profile');
 });
 
-router.get('/edit', (req, res) => {
+router.get('/edit', utils.requireLogin, (req, res) => {
     res.render('editprofile');
 });
 
