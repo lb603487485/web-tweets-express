@@ -1,0 +1,11 @@
+script.
+    function requireDelete(tweet_id, redir='/') {
+        $.ajax({
+            url: '/tweeting/delete/'+tweet_id,
+            type: 'DELETE',
+            success(res) {
+                console.log(res);
+                if (res.success) location.href=redir;
+            }
+        });
+    };

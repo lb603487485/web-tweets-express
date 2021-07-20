@@ -12,7 +12,7 @@
     },
     {
         "content": "Who goes to banks anymore? Not you, with this UK banking app 💰 https://www.producthunt.com/posts/starling-bank-2.",
-        "imageUrl": "/img/tweet.jpg",
+        "imageUrls": [ "/img/tweet.jpg" ],
         "author": {
             "name": "Product Hunt",
             "username": "ProductHunt",

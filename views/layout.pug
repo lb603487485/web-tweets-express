@@ -10,6 +10,15 @@ html
         link(rel="stylesheet", type="text/css" media="screen" href="/css/fontawesome-all.css")
         link(rel="stylesheet", type="text/css" media="screen" href="/css/columns.css")
         link(rel="stylesheet", type="text/css" media="screen" href="/css/main.css")
+        script.
+            UPLOADCARE_PUBLIC_KEY="b824b3e62a092e8c38d2";
+            UPLOADCARE_IMAGES_ONLY = true;
+            //- UPLOADCARE_CLEARABLE = true;
+            //- UPLOADCARE_LOCALE = "zh";
+            //- UPLOADCARE_TABS = "file url facebook gdrive dropbox instagram";
+        //- script(src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js", charset="utf-8")
+        script(src="https://ucarecdn.com/libs/widget/3.2.3/uploadcare.full.min.js" charset="utf-8")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js")
         block style 
     body 
         include nav 

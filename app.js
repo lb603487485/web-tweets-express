@@ -9,14 +9,16 @@ const passport = require('passport');
 const session = require('express-session');
 const LocalStrategy = require('passport-local').Strategy;
 const Users = require('./models/users');
+const Tweets = require('./models/tweets');
 
 
 // connect to database
 mongoose.connect('mongodb://localhost:27017/webdxd');
 
 // get routers
-const index = require('./routes/index');
-const profile = require('./routes/profile');
+const indexRouter = require('./routes/index');
+const profileRouter = require('./routes/profile');
+const tweetsRouter = require('./routes/tweets');
 
 const app = express();
 // allow using moment in pug
@@ -38,7 +40,7 @@ app.use(session({
     secret: 'webdxd',
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false }
+    cookie: { secure: false}
 }));
 
 // implement passport middleware
@@ -50,14 +52,30 @@ passport.use(Users.createStrategy());
 passport.serializeUser(Users.serializeUser());
 passport.deserializeUser(Users.deserializeUser());
 
+// adding user
 app.use((req, res, next) => {
     res.locals.user = req.user;
     next();
 });
 
+// add tweets to locals
+app.use((req, res, next) => {
+    console.log('tweet function', req.method);
+    if (req.method == 'GET'){
+        Tweets.find({}).sort({createdAt: 'desc'}).exec((err, tweets) => {
+            console.log("Tweets Called #######");
+            res.locals.tweets = tweets;
+            next();
+        });
+    } else {
+        next();
+    }
+});
+
 // use routers
-app.use('/', index);
-app.use('/profile', profile);
+app.use('/', indexRouter);
+app.use('/profile', profileRouter);
+app.use('/tweets', tweetsRouter);
 
 // // get
 // app.get('/', (req, res) => {

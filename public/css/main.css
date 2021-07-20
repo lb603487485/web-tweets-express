@@ -283,3 +283,82 @@ textarea.input-profile {
 .img-edit:hover .avatar-upload {
     opacity: 1;
 }
+
+.actionBox {
+    display: flex;
+    align-self: flex-start;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-left: auto;
+    /* color:#B4B4B4; */
+    color: #707070;
+}
+
+.deleteCross {
+    width: 20px;
+    text-align: center;
+    opacity: 0.2;
+}
+
+.deleteCross:hover {
+    opacity: 1;
+}
+
+.deleteCross:after {
+    font-size: 20px;
+    content: "\d7";
+}
+
+.editOption {
+    opacity: 0.2;
+    position: relative;
+    color: #707070;
+}
+
+.editOption:hover {
+    opacity: 1;
+}
+
+.editOption:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    /* background-color: #B4B4B4; */
+    background-color: #707070;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.2s ease-in-out;
+}
+
+.editOption:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+.image-preview-multiple ._list {
+    padding-top: 0;
+}
+.image-preview-multiple ._item {
+    padding: 10px 0;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    width: 100px;
+    word-break: break-word;
+    font-size: 12px;
+    line-height: normal;
+}
+.image-preview-multiple ._item img {
+    display: block;
+    width: 80px;
+    height: 80px;
+    padding: 0 10px 6px;
+    border-radius: 10px;
+}
+
+.tweet iframe .fotorama img {
+    border-radius: 10px;
+}

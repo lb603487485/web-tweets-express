@@ -8,4 +8,8 @@ nav.nav-bar
                 a(href="/") Home 
         div 
             a(href="/profile")
-                img.avatar-sm(src="/img/avatar.jpg" alt="avatar")
+                if (user) 
+                    img.avatar-sm(src=user.avatarUrl alt="avatar")
+                else 
+                    img.avatar-sm(src="/img/avatar.jpg" alt="avatar")
+                
