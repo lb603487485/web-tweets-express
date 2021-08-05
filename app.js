@@ -1,4 +1,6 @@
+const PORT = 3001;
 const express = require('express');
+const cors = require('cors');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -19,6 +21,8 @@ mongoose.connect('mongodb://localhost:27017/webdxd');
 const indexRouter = require('./routes/index');
 const profileRouter = require('./routes/profile');
 const tweetsRouter = require('./routes/tweets');
+const tweetsPublicRouter = require('./routes/public/tweets');
+const authPublicRouter = require('./routes/public/auth');
 
 const app = express();
 // allow using moment in pug
@@ -29,6 +33,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 // middleware
+app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -76,6 +81,8 @@ app.use((req, res, next) => {
 app.use('/', indexRouter);
 app.use('/profile', profileRouter);
 app.use('/tweets', tweetsRouter);
+app.use('/public/tweets', tweetsPublicRouter);
+app.use('/public/auth', authPublicRouter);
 
 // // get
 // app.get('/', (req, res) => {
@@ -107,4 +114,4 @@ app.use((err, req, res, next) => {
 });
 
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'));
+app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));

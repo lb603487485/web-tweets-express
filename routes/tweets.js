@@ -8,8 +8,12 @@ const { render } = require('pug');
 // this router requires user logined
 router.use(utils.requireLogin);
 
-router.get('/test', (req, res) => {
-    console.log(req);
+router.get('/', (req, res) => {
+    res.json({
+        tweets: res.locals.tweets,
+        err: null,
+        success: true,
+    });
 });
 
 router.get('/edit/:id', (req, res, next) => {

@@ -31,7 +31,7 @@ router.get('/signup', (req, res) => {
 });
 
 router.post('/signup', (req, res, next) => {
-    const {username, password, confirmPassword } = req.body;
+    const { username, password, confirmPassword } = req.body;
     if (password === confirmPassword) {
         Users.register(new Users({ username, name: username }), password, (err, user) => {
             if (err) {

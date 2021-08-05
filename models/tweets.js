@@ -19,8 +19,10 @@ const TweetsSchema = new Schema({
 // const TweetsSchema = new Schema({
 //     content: {type: String, required: true},
 //     imageUrl: String,
+//     imageGroup: String,
 //     author: {type:Schema.Types.ObjectId, ref:'Users'},
-//     createdAt: {type: Date, required: true, default: Date.now}
+//     createdAt: {type: Date, required: true, default: Date.now},
+//     modifiedAt: {type: Date, required: true, default: Date.now}
 // });
 
 const Tweets = mongoose.model('Tweets', TweetsSchema);
