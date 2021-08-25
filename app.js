@@ -1,4 +1,4 @@
-const PORT = 3001;
+const PORT = 3002;
 const express = require('express');
 const cors = require('cors');
 const logger = require('morgan');
@@ -33,7 +33,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 // middleware
-app.use(cors());
+// app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
