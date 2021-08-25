@@ -1,51 +1,27 @@
 const express = require('express');
-const router = express.Router();
-const utils = require('../utils');
+const passport = require('passport');
 const Users = require('../models/users');
-const Tweets = require('../models/tweets');
 
-// // update tweets to the tweets post by user only
-// router.use((req, res, next) => {
-//     Tweets.find({"author.username": req.user.username}).sort({createdAt: 'desc'}).exec((err, tweets) => {
-//         if (err) console.log(err);
-//         console.log("Profile Tweets Called #######");
-//         res.locals.tweets = tweets;
-//         next();
-//     });
-// });
+const router = express.Router();
 
-// this router requires user logined
-router.use(utils.requireLogin);
-
-//utils.requireLogin,
-router.get('/', (req, res) => {
-    console.log(req.user);
-    res.render('profile');
+// get user profile
+router.get('/', passport.authenticate('jwt', {session: false}), async (req, res) => {
+  try {
+    const user = await Users.findById(req.user._id).populate('tweets');
+    res.json({ profile: user, err: null, success: true });
+  } catch (err) {
+    return res.json({ error: err, success: false })
+  }
 });
 
-router.get('/edit', (req, res) => {
-    res.render('editprofile');
-});
-
-router.post('/edit', (req, res) => {
-    console.log(req.body);
-    Users.updateOne({ _id: req.user._id }, req.body, (err) => {
-        if (err) {
-            return next(err);
-        } else {
-            return res.redirect('/profile');
-        }
-    });
-});
-
-router.post('/avatar', (req, res) => {
-    Users.updateOne({ _id: req.user._id }, req.body, (err) => {
-        if (err) {
-            return next(err);
-        } else {
-            return res.json({ success: true });
-        }
-    });
+// update user profile
+router.put('/', passport.authenticate('jwt', {session: false}), async (req, res) => {
+  try {
+    const user = await Users.findOneAndUpdate({ _id: req.user._id }, req.body, { new: true }).populate('tweets');
+    res.json({ profile: user, err: null, success: true });
+  } catch (err) {
+    return res.json({ error: err, success: false })
+  }
 });
 
 module.exports = router;

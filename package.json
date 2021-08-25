@@ -1,41 +1,35 @@
 {
-  "name": "web-tweets-express",
+  "name": "web-tweet-express",
   "version": "1.0.0",
-  "description": "a practice of tweeting and blogging",
-  "main": "index.js",
+  "description": "A twitter like web application.",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "nodemon app"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lb603487485/web-tweets-express.git"
+    "url": "git+https://github.com/webdxd/web-tweet-express.git"
   },
-  "keywords": [
-    "tweet",
-    "tweets",
-    "practice",
-    "blog"
-  ],
-  "author": "Bo (Evo)",
+  "author": "Michael Chen",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lb603487485/web-tweets-express/issues"
+    "url": "https://github.com/webdxd/web-tweet-express/issues"
   },
-  "homepage": "https://github.com/lb603487485/web-tweets-express#readme",
+  "homepage": "https://github.com/webdxd/web-tweet-express#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "cookie-parser": "^1.4.5",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "express-session": "^1.17.2",
-    "lodash": "^4.17.21",
-    "moment": "^2.29.1",
-    "mongoose": "^5.12.15",
-    "morgan": "^1.10.0",
-    "passport": "^0.4.1",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.22.1",
+    "mongoose": "^5.8.13",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^6.1.0",
-    "pug": "^3.0.2"
+    "passport-local-mongoose": "^5.0.0",
+    "pug": "^2.0.3"
   }
 }

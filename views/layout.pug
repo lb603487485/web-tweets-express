@@ -1,26 +1,19 @@
-doctype html 
-html 
-    head 
-        meta(charset='UTF-8')
-        meta(name="viewport" content="width=device-width, initial-scale=1.0")
-        meta(http-equiv="X-UA-Compatible" content="ie=edge")
-        title Web Tweet
-        link(rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css")
-        link(rel="stylesheet" type="text/css" media="screen" href="https://fonts.googleapis.com/css?family=Roboto")
-        link(rel="stylesheet", type="text/css" media="screen" href="/css/fontawesome-all.css")
-        link(rel="stylesheet", type="text/css" media="screen" href="/css/columns.css")
-        link(rel="stylesheet", type="text/css" media="screen" href="/css/main.css")
-        script.
-            UPLOADCARE_PUBLIC_KEY="b824b3e62a092e8c38d2";
-            UPLOADCARE_IMAGES_ONLY = true;
-            //- UPLOADCARE_CLEARABLE = true;
-            //- UPLOADCARE_LOCALE = "zh";
-            //- UPLOADCARE_TABS = "file url facebook gdrive dropbox instagram";
-        //- script(src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js", charset="utf-8")
-        script(src="https://ucarecdn.com/libs/widget/3.2.3/uploadcare.full.min.js" charset="utf-8")
-        script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js")
-        block style 
-    body 
-        include nav 
-        block content 
-        block script 
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    title Web Tweet
+    link(rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css")
+    link(rel="stylesheet" type="text/css" media="screen" href="https://fonts.googleapis.com/css?family=Roboto")
+    link(rel="stylesheet" type="text/css" media="screen" href="/css/fontawesome-all.css")
+    link(rel="stylesheet" type="text/css" media="screen" href="/css/columns.css")
+    link(rel="stylesheet" type="text/css" media="screen" href="/css/main.css")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    script(src="https://unpkg.com/sweetalert2@7.19.2/dist/sweetalert2.all.js")
+    block style
+  body
+    include nav
+    block content
+    block script
