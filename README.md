@@ -1,9 +1,9 @@
+# The original version of this api server is from https://github.com/hackhub-education and I made some change to adapt my front-end works
 # web-tweet-express
 ![alt text](http://res.cloudinary.com/hackhub/image/upload/v1524849627/Home_j9hfb3.jpg)
 
 ## Description
 A twitter like web application.
-(The original version of this api server is from https://github.com/hackhub-education and I made some change to adapt my front-end works)
 
 ## Key Features
 * User account
